@@ -10,7 +10,6 @@ interface Props {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   
-  // 🎯 فك تشفير الـ slug العربي لضمان تطابقه مع قاعدة بيانات الووردبريس
   const decodedSlug = decodeURIComponent(slug);
   
   const post = await getPostBySlug(decodedSlug);
@@ -22,7 +21,6 @@ export default async function PostPage({ params }: Props) {
     <main className="min-h-screen py-32 px-6 bg-gradient-to-tr from-[#06b6d4] via-[#0ea5e9] to-[#38bdf8]" style={{ direction: 'rtl' }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* العمود الرئيسي (المقال) */}
         <article className="lg:col-span-8">
           <div className="bg-white/90 backdrop-blur-md border border-white/20 rounded-[2rem] p-8 md:p-12 shadow-2xl">
             <h1 className="text-4xl md:text-5xl font-black text-black mb-8 leading-tight">
@@ -40,14 +38,12 @@ export default async function PostPage({ params }: Props) {
           </div>
         </article>
 
-        {/* العمود الجانبي (السلايدر) */}
         <aside className="lg:col-span-4 space-y-8">
-          {/* قسم أحدث المقالات */}
           <div className="bg-white/10 p-6 rounded-3xl border border-white/20 backdrop-blur-md">
             <h3 className="text-xl font-bold text-white mb-6 border-b border-white/20 pb-4">أحدث المقالات</h3>
             <div className="space-y-6">
               {allPosts && allPosts.slice(0, 5).map((p: any) => (
-                <a key={p.slug} href={`/blog/${p.slug}`} className="group flex gap-4 items-center">
+                <a key={p.slug} href={`/${p.slug}`} className="group flex gap-4 items-center">
                   {p.featuredImage?.node?.sourceUrl && (
                     <div className="w-16 h-16 flex-shrink-0 rounded-xl overflow-hidden border border-white/10">
                       <img src={p.featuredImage.node.sourceUrl} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -59,7 +55,6 @@ export default async function PostPage({ params }: Props) {
             </div>
           </div>
 
-          {/* قسم الأكثر مشاهدة */}
           <div className="bg-white/10 p-6 rounded-3xl border border-white/20 backdrop-blur-md">
             <h3 className="text-xl font-bold text-white mb-6 border-b border-white/20 pb-4">الأكثر مشاهدة</h3>
             <div className="space-y-6">
@@ -84,12 +79,11 @@ export default async function PostPage({ params }: Props) {
           </div>
         </aside>
 
-        {/* قسم 20 مقالة في الأسفل */}
         <section className="lg:col-span-12 mt-16">
           <h2 className="text-3xl font-black text-white mb-8 text-center">مقالات قد تهمك أيضاً</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {allPosts.slice(0, 20).map((post: any) => (
-              <a href={`/blog/${post.slug}`} key={post.slug} className="group block">
+              <a href={`/${post.slug}`} key={post.slug} className="group block">
                 <div className="bg-white border border-white/20 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-amber-400 transition-all duration-300 h-full shadow-lg">
                   {post.featuredImage?.node?.sourceUrl && (
                     <div className="h-40 overflow-hidden">

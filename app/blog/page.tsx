@@ -20,7 +20,6 @@ async function getWordPressPosts() {
   `;
 
   try {
-    // استخدام الرابط الرسمي המקורי المعتمد داخل إعدادات الإضافة لمنع الـ Redirect 302
     const res = await fetch('https://unique-ws.com/graphql', {
       method: 'POST',
       headers: { 
@@ -57,7 +56,6 @@ export default async function BlogPage() {
   return (
     <main className="relative min-h-screen bg-gradient-to-tr from-[#06b6d4] via-[#0ea5e9] to-[#38bdf8] overflow-x-hidden pt-10 pb-20 font-cairo" style={{ direction: "rtl" }}>
       
-      {/* تأثير الثلج */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {snowflakes.map((snow) => (
           <div 
@@ -76,7 +74,6 @@ export default async function BlogPage() {
         ))}
       </div>
 
-      {/* المحتوى الرئيسي */}
       <div className="relative z-10 px-6">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">أحدث المقالات والأخبار</h1>
@@ -93,7 +90,7 @@ export default async function BlogPage() {
         ) : (
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post: any) => (
-              <Link href={`/blog/${post.slug}`} key={post.slug} className="group block h-full">
+              <Link href={`/${post.slug}`} key={post.slug} className="group block h-full">
                 <div className="bg-white border border-white/20 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-amber-400 transition-all duration-300 h-full shadow-lg flex flex-col">
                   
                   {post.featuredImage?.node?.sourceUrl && (
