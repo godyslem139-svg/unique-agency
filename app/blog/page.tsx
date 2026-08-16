@@ -90,7 +90,7 @@ export default async function BlogPage() {
         ) : (
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post: any) => (
-              <Link href={`/${post.slug}`} key={post.slug} className="group block h-full">
+              <Link href={`/blog/${post.slug}`} key={post.slug} className="group block h-full">
                 <div className="bg-white border border-white/20 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-amber-400 transition-all duration-300 h-full shadow-lg flex flex-col">
                   
                   {post.featuredImage?.node?.sourceUrl && (
