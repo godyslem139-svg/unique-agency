@@ -21,7 +21,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/:slug((?!blog|api|_next|favicon.ico).*)',
+        // استثناء صفحات الموقع الرئيسية والخدمات والدول
+        source: '/:slug((?!blog|api|_next|favicon.ico|services|contact|about|portfolio|wizard|WebsiteDesignCompany.*).*)',
         destination: '/blog/:slug',
         permanent: true,
       },
