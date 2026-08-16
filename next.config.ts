@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
       {
         source: '/:slug((?!blog|api|_next|favicon.ico).*)',
         destination: '/blog/:slug',
-        permanent: 301,
+        permanent: true,
       },
     ];
   },
