@@ -7,17 +7,18 @@ const KNOWN_ROUTES = [
   '/services',
   '/contact',
   '/about',
+  '/aboutus',
   '/portfolio',
   '/projects',
   '/wizard',
-  '/wordpress-nextjs', // تمت إضافة المسار هنا
+  '/wordpress-nextjs',
   '/api',
 ];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. استثناء الملفات الثابتة، الروابط المعروفة، والـ static assets
+  // 1. استثناء الملفات الثابتة والمسارات المعروفة
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
@@ -28,7 +29,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. استثناء المجلدات التي تبدأ بالخدمات والدول
+  // 2. استثناء الصفحات الخاصة بالدول والخدمات
   if (
     pathname.startsWith('/WebsiteDesignCompany') ||
     pathname.startsWith('/SEOCompany')
