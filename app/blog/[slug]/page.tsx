@@ -43,7 +43,7 @@ export default async function PostPage({ params }: Props) {
             <h3 className="text-xl font-bold text-white mb-6 border-b border-white/20 pb-4">أحدث المقالات</h3>
             <div className="space-y-6">
               {allPosts && allPosts.slice(0, 5).map((p: any) => (
-                <a key={p.slug} href={`/${p.slug}`} className="group flex gap-4 items-center">
+                <a key={p.slug} href={`/blog/${p.slug}`} className="group flex gap-4 items-center">
                   {p.featuredImage?.node?.sourceUrl && (
                     <div className="w-16 h-16 flex-shrink-0 rounded-xl overflow-hidden border border-white/10">
                       <img src={p.featuredImage.node.sourceUrl} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -83,7 +83,7 @@ export default async function PostPage({ params }: Props) {
           <h2 className="text-3xl font-black text-white mb-8 text-center">مقالات قد تهمك أيضاً</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {allPosts.slice(0, 20).map((post: any) => (
-              <a href={`/${post.slug}`} key={post.slug} className="group block">
+              <a href={`/blog/${post.slug}`} key={post.slug} className="group block">
                 <div className="bg-white border border-white/20 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-amber-400 transition-all duration-300 h-full shadow-lg">
                   {post.featuredImage?.node?.sourceUrl && (
                     <div className="h-40 overflow-hidden">

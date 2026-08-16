@@ -18,6 +18,15 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:slug((?!blog|api|_next|favicon.ico).*)',
+        destination: '/blog/:slug',
+        permanent: 301,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
