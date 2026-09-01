@@ -48,7 +48,6 @@ export default function FooterSection() {
               <span>0 15 05388060</span>
             </a>
 
-            {/* البريد الإلكتروني */}
             <a 
               href="mailto:uniquecompany55@gmail.com" 
               className="bg-[#0B1B3D] text-[#FFB703] px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 shadow hover:opacity-90 transition-opacity"
@@ -57,7 +56,6 @@ export default function FooterSection() {
               <span>uniquecompany55@gmail.com</span>
             </a>
 
-            {/* أيقونة واتساب المبهرة */}
             <a 
               href="https://wa.me/201505388060"
               target="_blank"
@@ -70,7 +68,6 @@ export default function FooterSection() {
               </svg>
             </a>
 
-            {/* أيقونة فيسبوك */}
             <a 
               href="https://www.facebook.com/share/1DsBxouXJq/"
               target="_blank"
@@ -83,7 +80,6 @@ export default function FooterSection() {
               </svg>
             </a>
 
-            {/* أيقونة لينكد إن */}
             <a 
               href="https://www.linkedin.com/company/unique-web-services-ai/"
               target="_blank"

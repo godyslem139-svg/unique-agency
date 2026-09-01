@@ -5,8 +5,10 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const lowerPath = pathname.toLowerCase();
 
-  // 1. استثناء الملفات الثابتة، الـ static assets، وطلبات الـ API
+  // 1. استثناء خرائط الموقع وملفات محركات البحث والملفات الثابتة و /blog و /api
   if (
+    pathname === '/sitemap.xml' ||
+    pathname === '/robots.txt' ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/blog') ||
@@ -15,26 +17,32 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. فحص ما إذا كان الرابط يطابق أي صفحة أساسية أو صفحة خدمة/مدينة (غير حساس لحالة الأحرف)
-  const isStaticPage = 
+  const knownCategoriesAndPages = [
+    'backlinks',
+    'android',
+    'content-writing',
+    'e-commerce',
+    'seo',
+    'services',
+    'contact',
+    'about',
+    'aboutus',
+    'portfolio',
+    'projects',
+    'wizard',
+    'wordpress-nextjs'
+  ];
+
+  const isStaticOrCategory = 
     lowerPath === '/' ||
-    lowerPath === '/blog' ||
-    lowerPath === '/services' ||
-    lowerPath === '/contact' ||
-    lowerPath === '/about' ||
-    lowerPath === '/aboutus' ||
-    lowerPath === '/portfolio' ||
-    lowerPath === '/projects' ||
-    lowerPath === '/wizard' ||
-    lowerPath === '/wordpress-nextjs' ||
+    knownCategoriesAndPages.some(route => lowerPath === `/${route}`) ||
     lowerPath.startsWith('/websitedesigncompany') ||
     lowerPath.startsWith('/seocompany');
 
-  if (isStaticPage) {
+  if (isStaticOrCategory) {
     return NextResponse.next();
   }
 
-  // 3. تحويل المقالات القديمة فقط إلى /blog/slug
   const url = request.nextUrl.clone();
   url.pathname = `/blog${pathname}`;
   return NextResponse.redirect(url, 301);

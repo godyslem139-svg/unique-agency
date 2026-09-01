@@ -11,7 +11,6 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="bg-[#0B2538]/80 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl"
         >
-          {/* العنوان والوصف */}
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">هل أنت جاهز للبدء؟</h2>
             <p className="text-white/70">أرسل لنا تفاصيل مشروعك وسنتواصل معك في أسرع وقت لتحديد خطة عملك.</p>

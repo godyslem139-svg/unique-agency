@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// مصفوفة المشاريع مع إضافة مسار الصورة الثابتة من مجلد public مباشرة
 const projects = [
   { title: "Quraaany", url: "https://quraaany.com/", image: "/quraaany.webp" },
   { title: "Riyadh Gateway", url: "https://riyadhgateway.com/", image: "/riyadhgateway.webp" },
@@ -47,7 +46,6 @@ export default function ProjectsSection() {
                       transition={{ duration: 0.4 }}
                       className="w-full h-full relative"
                     >
-                      {/* استخدام مكون الـ Image الذكي لرفع أداء الـ SEO والسرعة */}
                       <Image 
                         src={project.image} 
                         alt={`لقطة شاشة من مشروع موقع ${project.title}`} 

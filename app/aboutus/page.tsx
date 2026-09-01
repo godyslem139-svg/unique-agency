@@ -15,7 +15,6 @@ export default function AboutPage() {
     <main className="min-h-screen bg-gradient-to-tr from-[#06b6d4] via-[#0ea5e9] to-[#38bdf8] py-32 px-6 font-cairo" style={{ direction: "rtl" }}>
       <div className="max-w-5xl mx-auto">
         
-        {/* الهيدر الخاص بالصفحة */}
         <div className="text-center mb-24">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -28,7 +27,6 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* بطاقات الميزات */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {features.map((item, idx) => (
             <motion.div 
@@ -45,7 +43,6 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* سكشن القصة */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

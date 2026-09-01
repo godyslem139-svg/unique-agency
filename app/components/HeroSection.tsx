@@ -7,7 +7,6 @@ export default function HeroSection() {
     */
     <section className="relative w-full aspect-video md:aspect-auto md:h-screen overflow-hidden bg-[#0D2B42]">
       
-      {/* الفيديو يملأ المساحة المحددة له تماماً */}
       <video 
         autoPlay 
         loop 

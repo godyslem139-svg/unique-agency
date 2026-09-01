@@ -31,14 +31,12 @@ export default function GoogleLeadForm() {
 *لينك الموقع:* ${formData.websiteUrl}%0A
 *لينك خرائط جوجل:* ${formData.googleMapsUrl}`;
 
-    // فتح تطبيق الوب أو الواتساب بالبيانات مباشرة
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
   };
 
   return (
     <div className="min-h-screen bg-[#07111e] text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 font-sans" dir="rtl">
       
-      {/* رأس الصفحة البسيط المطابق */}
       <div className="text-center max-w-xl mb-8 pt-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
           اظهر في أول <span className="text-cyan-400">3 نتائج</span> على Google
@@ -48,7 +46,6 @@ export default function GoogleLeadForm() {
         </p>
       </div>
 
-      {/* صندوق الفورم الأبيض المطابق للصورة */}
       <div className="bg-white text-slate-900 w-full max-w-lg p-6 sm:p-8 rounded-2xl shadow-2xl relative mb-12">
         <form onSubmit={handleSubmit} className="space-y-4">
           

@@ -55,7 +55,6 @@ export default function Navbar() {
       }`} 
       style={{ direction: "rtl" }}
     >
-      {/* 1. الطرف الأيمن: اللوجو الرسمي */}
       <div className="flex-shrink-0">
         <Link href="/" title="العودة للصفحة الرئيسية" className="w-14 h-14 md:w-16 md:h-16 relative block hover:opacity-90 transition-opacity">
           <Image 
@@ -69,7 +68,6 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* 2. المنتصف: القائمة لشاشات الديسك توب */}
       <div className="hidden lg:flex items-center justify-center flex-1 px-12">
         <div className="flex items-center gap-8 xl:gap-10 bg-white/5 border border-white/10 py-3 px-10 rounded-2xl shadow-md backdrop-blur-sm hover:border-white/20 transition-all">
           {navLinks.map((link, index) => (
@@ -84,7 +82,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 3. الطرف الأيسر: البحث، زر ابدأ الآن، وزر القائمة للموبايل */}
       <div className="flex items-center gap-3 flex-shrink-0 justify-end">
         <form onSubmit={handleSearchSubmit} className="hidden md:flex relative items-center w-full max-w-[200px] lg:max-w-[280px]">
           <input
@@ -117,7 +114,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* قائمة الموبايل المنسدلة */}
       {isOpen && (
         <div className="absolute top-[100%] right-0 w-full bg-[#00223d]/98 backdrop-blur-2xl text-white p-6 flex flex-col items-center gap-4 lg:hidden shadow-[0_20px_40px_rgba(0,0,0,0.8)] border-t border-white/15 transition-all">
           <form onSubmit={handleSearchSubmit} className="flex relative items-center w-full max-w-sm md:hidden mb-2">
