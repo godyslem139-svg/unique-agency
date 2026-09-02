@@ -2,9 +2,7 @@
 
 export default function HeroSection() {
   return (
-    /* aspect-video: تعطي السكشن أبعاد الفيديو الصحيحة تماماً على الموبايل (16:9) ليظهر كاملاً دون قص.
-      md:aspect-auto md:h-screen: تعيد السكشن لملء الشاشة بالكامل على أجهزة الكمبيوتر.
-    */
+  
     <section className="relative w-full aspect-video md:aspect-auto md:h-screen overflow-hidden bg-[#0D2B42]">
       
       <video 
