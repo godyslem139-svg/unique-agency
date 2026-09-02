@@ -8,14 +8,15 @@ import Navbar from "./components/Navbar";
 import LayoutWrapper from "./components/LayoutWrapper"; 
 import FooterSection from "./components/Footer";
 
-// تحميل ديناميكي متوافق مع Server Components (بدون ssr: false)
+// تحميل ديناميكي لمكون الثلج لمنع معالجة الـ Canvas أثناء التحميل الأولي
 const Snow = dynamic(() => import("./components/Snow"));
 
 const cairo = Cairo({
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["400", "500", "700", "900"], // تم إزالة 300 لتقليل حجم خطوط WOFF2 المحملة
   display: "swap",
   variable: "--font-cairo",
+  adjustFontFallback: true, // يقلل من Cumulative Layout Shift (CLS)
 });
 
 export const metadata: Metadata = {
@@ -37,9 +38,19 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head>
-        <link rel="dns-prefetch" href="https://www.uniquee-ws.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="h-full min-h-screen bg-[#0B1B3D] text-white flex flex-col justify-between selection:bg-yellow-400 selection:text-[#0B1B3D]">
+        {/* GTM Fallback للمتصفحات التي لا تدعم JS */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N2JWB3HS"
+            height="0" 
+            width="0" 
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <div className="flex flex-col min-h-screen relative overflow-x-hidden">
           <Snow /> 
           <Navbar />
@@ -51,6 +62,7 @@ export default function RootLayout({
         </div>
         <FooterSection />
 
+        {/* تحميل GTM بعد اكتمال تفاعل الصفحة لتوفير الـ Main Thread */}
         <Script
           id="gtm-script"
           strategy="lazyOnload"

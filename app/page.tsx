@@ -1,14 +1,17 @@
+import dynamic from "next/dynamic";
+
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ServicesTicker from "./components/ServicesTicker";
-import ServicesSection from "./components/ServicesSection";
-import ProjectsSection from "./components/ProjectsSection";
-import WhyChooseUs from "./components/WhyChooseUs";
-import ShowcaseSection from "./components/ShowcaseSection";
-import StatsChart from "./components/StatsChart";
-import StatsSection from "./components/StatsSection";
-import LocationSection from "./components/LocationSection";
-import ContactForm from "./components/ContactForm";
+
+const ServicesSection = dynamic(() => import("./components/ServicesSection"));
+const ProjectsSection = dynamic(() => import("./components/ProjectsSection"));
+const WhyChooseUs = dynamic(() => import("./components/WhyChooseUs"));
+const ShowcaseSection = dynamic(() => import("./components/ShowcaseSection"));
+const StatsChart = dynamic(() => import("./components/StatsChart"));
+const StatsSection = dynamic(() => import("./components/StatsSection"));
+const LocationSection = dynamic(() => import("./components/LocationSection"));
+const ContactForm = dynamic(() => import("./components/ContactForm"));
 
 export default function HomePage() {
   return (
@@ -21,14 +24,19 @@ export default function HomePage() {
       <ServicesTicker />
 
       <ServicesSection />
+      
       <ProjectsSection />
+      
       <WhyChooseUs />
       
       <ShowcaseSection />
       
       <StatsChart />
+      
       <StatsSection />
+      
       <LocationSection />
+      
       <ContactForm />
       
     </main>
