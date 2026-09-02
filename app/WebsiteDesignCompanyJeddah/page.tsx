@@ -5,27 +5,30 @@ export const metadata = {
   title: 'أفضل شركة تصميم مواقع إلكترونية في جدة | برمجة Next.js فائقة السرعة',
   description: 'نقدم خدمات تصميم وتطوير المواقع والمتاجر الإلكترونية في جدة بأحدث تقنيات Next.js ووردبريس سرعة خارقة، تهيئة كاملة لمحركات البحث (SEO)، وضمان مضاعفة مبيعاتك.',
   alternates: {
-    canonical: 'https://yourwebsite.com/jeddah-web-design',
+    canonical: '/jeddah-web-design', // تم التعديل إلى مسار نسبي
   },
   openGraph: {
     title: 'أفضل شركة تصميم مواقع إلكترونية في جدة | Next.js',
     description: 'طور حضورك الرقمي في جدة بموقع إلكتروني فائق السرعة ومحسن لمحركات البحث.',
-    url: 'https://yourwebsite.com/jeddah-web-design',
-    siteName: 'اسم شركتك',
+    url: '/jeddah-web-design', // تم التعديل إلى مسار نسبي
+    siteName: 'Unique', // تم تعديل اسم الشركة
     locale: 'ar_SA',
     type: 'website',
   },
 };
 
 export default function JeddahWebDesignPage() {
+  const baseUrl = 'https://www.uniquee-ws.com';
+  const pageUrl = `${baseUrl}/jeddah-web-design`;
+
   // SEO Schema (JSON-LD)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'شركة تصميم مواقع إلكترونية في جدة',
-    image: 'https://yourwebsite.com/logo.png',
-    '@id': 'https://yourwebsite.com/jeddah-web-design',
-    url: 'https://yourwebsite.com/jeddah-web-design',
+    image: `${baseUrl}/logo.png`, // تم التعديل للرابط الفعلي
+    '@id': pageUrl, // تم التعديل للرابط الفعلي
+    url: pageUrl, // تم التعديل للرابط الفعلي
     telephone: '+9661505388060',
     address: {
       '@type': 'PostalAddress',
@@ -487,7 +490,7 @@ export default function JeddahWebDesignPage() {
       </section>
 
       {/* 15. Footer / CTA Final */}
-      <footer className="bg-slate-950 border-t border-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-slate-950 border-t border-slate-900 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-right">
           <div>
             <h3 className="text-2xl font-bold mb-2">جاهز لمضاعفة مبيعاتك في جدة؟</h3>
@@ -502,8 +505,8 @@ export default function JeddahWebDesignPage() {
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-900 text-center text-slate-500 text-sm">
           جميع الحقوق محفوظة © 2026 - تصميم وتطوير المواقع بـ Next.js
         </div>
-      </footer>
+      </section>
 
     </div>
   );
-}
+} 

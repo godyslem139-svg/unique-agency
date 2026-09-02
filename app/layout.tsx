@@ -17,6 +17,9 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  // 👇 هذا هو السطر السحري الذي سيحل المشكلة في كل صفحات الموقع
+  metadataBase: new URL("https://www.uniquee-ws.com"), 
+  
   title: "Unique WS - وكالة رقمية متكاملة",
   description: "وكالة رقمية متكاملة لحلول الويب وتصميم المواقع في الكويت والسعودية",
 };

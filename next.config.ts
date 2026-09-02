@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // إزالة أسطر console.log في الإنتاج لتقليل حجم JS
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // تحسين جلب واستيراد أجزاء المكتبات الخارجية
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
 };
 
 export default nextConfig;

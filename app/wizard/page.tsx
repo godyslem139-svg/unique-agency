@@ -1,4 +1,3 @@
-// بدلاً من استخدام @/components...
 import ProjectWizard from '../components/ProjectWizard';
 
 export default function WizardPage() {
